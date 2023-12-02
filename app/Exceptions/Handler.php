@@ -17,6 +17,22 @@ class Handler extends ExceptionHandler {
      *
      * @var array<int, string>
      */
+
+    /*
+     *   @var $dontReport
+     *  property contains an array of exception classes that should not be reported.
+     *  These exceptions will not be logged by the application.
+     */
+
+    protected $dontReport = [
+        AuthenticationException::class,
+        AuthorizationException::class,
+        HttpException::class,
+        ModelNotFoundException::class,
+        TokenMismatchException::class,
+        ValidationException::class,
+    ];
+
     protected $dontFlash = [
         'current_password',
         'password',
@@ -41,7 +57,9 @@ class Handler extends ExceptionHandler {
             if ($exception instanceof AuthenticationException) {
                 return $this->unauthenticatedReturn();
             }
-
+            if ($request->expectsJson()) {
+                return response()->json(['error' => 'Unauthenticated.'], 401);
+            }
             return $this->response('exception', $message ?? $exception->getMessage(),
                 ['line' => $exception->getLine(), 'file' => $exception->getFile()]);
         }
