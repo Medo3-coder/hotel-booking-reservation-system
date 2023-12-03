@@ -15,7 +15,7 @@ class AdminTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create('ar');
+        $faker = Faker::create('en');
         $admins = [];
         for($i = 0; $i < 10 ; $i++) {
             $admins[] =[

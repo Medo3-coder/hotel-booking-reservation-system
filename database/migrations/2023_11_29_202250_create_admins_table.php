@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('password');
-            $table->string('image', 50)->nullable();
+            $table->string('image', 50)->default('admin.png');
             $table->boolean('is_blocked')->default(0);
             $table->boolean('is_notify')->default(true);
             $table->softDeletes();
