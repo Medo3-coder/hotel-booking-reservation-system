@@ -14,8 +14,9 @@ class RedirectIfAuthenticated {
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next, $guard = null): Response {
+
         if (Auth::guard($guard)->check()) {
-            if ($guard == "admin") {
+            if ($guard == 'admin') {
                 return redirect()->route('admin.dashboard');
             } else {
                 return redirect()->route('home');

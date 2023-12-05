@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--favicon-->
     <link rel="icon" href="{{ asset('admin/assets/images/favicon-32x32.png') }}" type="image/png" />
+
     <!--plugins-->
     <link href="{{ asset('admin/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('admin/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -24,6 +25,7 @@
 </head>
 
 <body class="">
+
     <!--wrapper-->
     <div class="wrapper">
         <div class="section-authentication-cover">
@@ -55,17 +57,19 @@
                                         <p class="mb-0">Please log in to your account</p>
                                     </div>
                                     <div class="form-body">
-                                        <form class="row g-3">
+                                        <form class="form-horizontal" action="{{ route('admin.login') }}"
+                                            method="post">
+                                            @csrf
                                             <div class="col-12">
                                                 <label for="inputEmailAddress" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="inputEmailAddress"
-                                                    placeholder="jhon@example.com">
+                                                <input type="email" name="email" class="form-control"
+                                                    id="inputEmailAddress" placeholder="Enter Your Email">
                                             </div>
-                                            <div class="col-12">
+                                            <div class="col-12 pass">
                                                 <label for="inputChoosePassword" class="form-label">Password</label>
                                                 <div class="input-group" id="show_hide_password">
-                                                    <input type="password" class="form-control border-end-0"
-                                                        id="inputChoosePassword" value="12345678"
+                                                    <input type="password" name="password"
+                                                        class="form-control border-end-0" id="inputChoosePassword"
                                                         placeholder="Enter Password"> <a href="javascript:;"
                                                         class="input-group-text bg-transparent"><i
                                                             class="bx bx-hide"></i></a>
@@ -73,7 +77,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox"
+                                                    <input class="form-check-input" type="checkbox" name="remember_me"
                                                         id="flexSwitchCheckChecked">
                                                     <label class="form-check-label"
                                                         for="flexSwitchCheckChecked">Remember Me</label>
@@ -132,6 +136,7 @@
     <script src="{{ asset('admin/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+
     <!--Password show & hide js -->
     <script>
         $(document).ready(function() {
@@ -149,6 +154,60 @@
             });
         });
     </script>
-    <!--app JS-->
+
+    <script>
+
+
+        $(document).ready(function() {
+            $(document).on('submit', '.form-horizontal', function(e) {
+                e.preventDefault();
+                var url = $(this).attr('action');
+                $.ajax({
+                    url: url,
+                    method: 'post',
+                    data: new FormData($(this)[0]),
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function() {
+                        $(".submit_button").html('<i class="fas fa-spinner"></i>').attr(
+                            'disables', true);
+                    },
+                    success: function(response) {
+                        $(".text-danger").remove()
+                        $('.form-horizontal input').removeClass('border-danger')
+                        if (response.status == 'login') {
+                            // toastr.success(response.message)
+                            setTimeout(function() {
+                                window.location.replace(response.url)
+                            }, 1000);
+                        } else {
+                            $(".submit_button").html(
+                                `<i class="ft-unlock"></i> {{ __('admin.login') }}`).attr(
+                                'disable', false)
+                                $('.form-horizontal input[name=password]').addClass('border-danger');
+                                $('#show_hide_password').after(`<span class="mt-5 text-danger">${response.message}</span>`);
+                        }
+                    },
+                    error: function(xhr) {
+                        $(".submit_button").html("{{ __('admin.login') }}").attr('disable',
+                            false)
+                        $(".text-danger").remove()
+                        $('.form-horizontal input').removeClass('border-danger')
+
+                        $.each(xhr.responseJSON.errors, function(key, value) {
+                            $('.form-horizontal input[name=' + key + ']').addClass(
+                                'border-danger')
+                            $('.form-horizontal input[name=' + key + ']').after(
+                                `<span class="mt-5 text-danger">${value}</span>`);
+                        });
+                    },
+
+                });
+
+            });
+        });
+    </script>
     <script src="{{ asset('admin/assets/js/app.js') }}"></script>
 </body>
+</html>
