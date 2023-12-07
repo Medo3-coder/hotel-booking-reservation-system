@@ -39,6 +39,14 @@ class AuthController extends Controller {
 
     }
 
+    public function logout(){
+        auth('admin')->logout();
+        session()->invalidate();
+        session()->regenerateToken();
+        return redirect(route('admin.login'));
+
+    }
+
     /**
      * Get the rate limiting throttle key for the request.
      *

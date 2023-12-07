@@ -10,11 +10,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.' , 'namespace' => 'Admin', 'm
 
     Route::get('login', [AuthController::class, 'showLoginForm'])->name('show.login')->middleware('guest:admin');
     Route::post('login', [AuthController::class, 'login'])->name('login');
-    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
     Route::group(['middleware' => ['admin']], function () {
         Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+        Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
     });
