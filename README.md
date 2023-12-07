@@ -4,7 +4,7 @@ This Project Related to Booking reservation Web Application Where User can reser
 ## Project Dependencies
 - Php (Laravel Framework )
 - Mysql
-- RESTful Api's
+- RESTful Api's   
 - Laravel's authentication scaffolding   
 - Google Service To Send Message with Auto Generated Password to User Email (TODO)
 - Task Scheduling (Cron Jobs) To Automate Fetching rooms At Back-end  (TODO)
