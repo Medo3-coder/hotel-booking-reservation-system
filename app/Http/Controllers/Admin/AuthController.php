@@ -17,7 +17,6 @@ class AuthController extends Controller {
 
     public function login(loginRequest $request) {
 
-
         if ($this->chackTooManyFailedAttempts()) {
             return $this->chackTooManyFailedAttempts();
         }
@@ -39,7 +38,7 @@ class AuthController extends Controller {
 
     }
 
-    public function logout(){
+    public function logout() {
         auth('admin')->logout();
         session()->invalidate();
         session()->regenerateToken();

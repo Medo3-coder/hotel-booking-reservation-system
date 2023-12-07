@@ -6,11 +6,15 @@
  <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
  <!--End Back To Top Button-->
  <footer class="page-footer">
-     <p class="mb-0">Copyright © 2022. All right reserved.</p>
+     <p class="mb-0">Copyright © 2023. All right reserved.</p>
  </footer>
 
  <!-- Bootstrap JS -->
  <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+
+
+
+
  <!--plugins-->
  <script src="{{ asset('admin/assets/js/jquery.min.js') }}"></script>
  <script src="{{ asset('admin/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
@@ -20,9 +24,15 @@
  <script src="{{ asset('admin/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
  <script src="{{ asset('admin/assets/plugins/chartjs/js/chart.js') }}"></script>
  <script src="{{ asset('admin/assets/js/index.js') }}"></script>
+
+ @stack('js')
  <!--app JS-->
  <script src="{{ asset('admin/assets/js/app.js') }}"></script>
- <script>
+ {{-- <script>
      new PerfectScrollbar(".app-container")
- </script>
- @stack('js')
+ </script> --}}
+
+
+
+
+

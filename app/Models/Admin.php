@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\UploadTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
 class Admin extends Authenticatable {
-    use HasFactory, SoftDeletes;
+    use HasFactory, UploadTrait , SoftDeletes;
     protected $table = 'admins';
 
     protected $fillable = [
@@ -21,9 +21,10 @@ class Admin extends Authenticatable {
         'is_blocked',
     ];
 
-
-
-    protected $hidden = ['password'];
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
     protected $cast = [
         'is_notify'  => 'boolean',

@@ -1,6 +1,3 @@
-<!doctype html>
-<html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -25,6 +22,9 @@
     <link rel="stylesheet" href="{{asset('admin/assets/css/dark-theme.css')}}" />
     <link rel="stylesheet" href="{{asset('admin/assets/css/semi-dark.css')}}" />
     <link rel="stylesheet" href="{{asset('admin/assets/css/header-colors.css')}}" />
-    <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+
+
     @stack('css')
+
+    <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
 </head>

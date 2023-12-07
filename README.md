@@ -5,6 +5,9 @@ This Project Related to Booking reservation Web Application Where User can reser
 - Php (Laravel Framework )
 - Mysql
 - RESTful Api's   
-- Laravel's authentication scaffolding   
 - Google Service To Send Message with Auto Generated Password to User Email (TODO)
 - Task Scheduling (Cron Jobs) To Automate Fetching rooms At Back-end  (TODO)
+
+# Features
+- Admins can have different roles (used [Spatie's permission package](https://github.com/spatie/laravel-permission)).  (TODO)
+ 
