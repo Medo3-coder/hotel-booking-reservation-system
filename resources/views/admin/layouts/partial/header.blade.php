@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('admin/assets/css/dark-theme.css')}}" />
     <link rel="stylesheet" href="{{asset('admin/assets/css/semi-dark.css')}}" />
     <link rel="stylesheet" href="{{asset('admin/assets/css/header-colors.css')}}" />
+    <script src="https://kit.fontawesome.com/c1462b3672.js" crossorigin="anonymous"></script>
 
 
     @stack('css')

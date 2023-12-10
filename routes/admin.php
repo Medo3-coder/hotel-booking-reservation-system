@@ -20,7 +20,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.' , 'namespace' => 'Admin', 'm
 
         //admins
         Route::get('admins', [AdminController::class, 'index'])->name('admins');
-        Route::get('create', [AdminController::class, 'create'])->name('create');
+        Route::get('admins/create', [AdminController::class, 'create'])->name('create');
+        Route::get('admins/store',  [AdminController::class, 'store'])->name('store');
+        Route::get('admins/show/{id}',   [AdminController::class, 'show'])->name('show');
+        Route::get('admins/update/{id}', [AdminController::class, 'update'])->name('update');
+        Route::get('admins/edit/{id}',   [AdminController::class, 'edit'])->name('edit');
+        Route::get('admins/delete/{id}', [AdminController::class, 'delete'])->name('delete');
+
+
 
 
 

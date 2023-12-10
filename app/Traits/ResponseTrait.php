@@ -39,4 +39,8 @@ trait ResponseTrait {
         return $this->response('unauthorized', 'Please login again');
     }
 
+    public function successOtherData(array $dataArr) {
+        return $this->response('success', trans('apis.success'), [], $dataArr);
+    }
+
 }
