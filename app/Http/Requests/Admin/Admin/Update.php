@@ -17,8 +17,8 @@ class Update extends FormRequest {
       'phone'    => "required|min:10|unique:admins,phone," . $this->id,
       'email'    => "required|email|max:191|unique:admins,email," . $this->id,
       'password' => 'nullable|min:6|max:255',
-      'avatar'   => 'nullable|image',
-      'role_id'  => 'required|exists:roles,id',
+      'image'    => 'nullable|image',
+    //   'role_id'  => 'required|exists:roles,id',
       'active'   => 'nullable|in:1,0',
       'is_blocked'  => 'required|in:1,0',
     ];

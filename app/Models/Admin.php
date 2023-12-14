@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable {
-    use HasFactory, UploadTrait , SoftDeletes;
+    use HasFactory, UploadTrait, SoftDeletes;
     protected $table = 'admins';
 
     protected $fillable = [
@@ -44,6 +44,12 @@ class Admin extends Authenticatable {
         if ($value != null && is_file($value)) {
             isset($this->attributes['image']) ? $this->deleteFile($this->attributes['image'], 'admins') : '';
             $this->attributes['image'] = $this->uploadAllTyps($value, 'admins');
+        }
+    }
+
+    public function setPasswordAttribute($value) {
+        if ($value) {
+            $this->attributes['password'] = bcrypt($value);
         }
     }
 

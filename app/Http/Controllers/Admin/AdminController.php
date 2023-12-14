@@ -34,7 +34,7 @@ class AdminController extends Controller
     public function update($id , Update $request){
         $admin = Admin::findOrFail($id);
         $admin->update($request->validated());
-        return $this->successOtherData(['url' => route('admin.admins.index')]);
+        return response()->json(['url' => route('admin.admins')]);
     }
 
     public function show($id){
@@ -48,7 +48,5 @@ class AdminController extends Controller
         }
         Admin::findOrFail($id)->delete();
         return $this->successOtherData(['id' => $id]);
-
-
     }
 }
