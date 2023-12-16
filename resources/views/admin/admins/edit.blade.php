@@ -91,7 +91,7 @@
                                         <div class="form-group">
                                             <label for="first-name-column">{{ __('admin.password') }}</label>
                                             <div class="controls">
-                                                <input type="password" name="password" class="form-control">
+                                                <input type="password" name="password" placeholder="{{ __('admin.type_the_password') }}" class="form-control">
                                             </div>
                                         </div>
                                     </div>

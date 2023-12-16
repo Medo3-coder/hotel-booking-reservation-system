@@ -4,6 +4,7 @@
     <!-- dataTables CSS -->
     <link href="{{ asset('admin/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <!-- dataTables CSS -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
 @endpush
 
 @section('admin')
@@ -100,9 +101,12 @@
 @endsection
 
 @push('js')
+
     <!--datatable JS-->
     <script src="{{ asset('admin/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
@@ -122,4 +126,7 @@
     </script>
 
     <!--datatable JS-->
+
+    @include('Admin.shared.deleteOne')
+
 @endpush

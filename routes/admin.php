@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.' , 'namespace' => 'Admin', 'm
         Route::get('admins/show/{id}',   [AdminController::class, 'show'])->name('show');
         Route::put('admins/update/{id}', [AdminController::class, 'update'])->name('update');
         Route::get('admins/edit/{id}',   [AdminController::class, 'edit'])->name('edit');
-        Route::delete('admins/delete/{id}', [AdminController::class, 'delete'])->name('delete');
+        Route::delete('admins/delete/{id}', [AdminController::class, 'destroy'])->name('delete');
 
 
 

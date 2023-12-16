@@ -14,7 +14,7 @@ class AdminController extends Controller
     use ResponseTrait;
     public function index(){
         $admins = Admin::get();
-        return view('admin.admins.index' , compact('admins'));
+        return view('admin.admins.table' , compact('admins'));
     }
 
     public function create(){
