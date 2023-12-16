@@ -18,7 +18,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="{{ $admin->image }}" alt="Admin" class="rounded-circle p-1 bg-primary"
+                                    <img src="{{ $admin->image }}" id="showImage" alt="Admin" class="rounded-circle p-1 bg-primary"
                                         width="110">
                                     <div class="mt-3">
                                         <h4>{{ $admin->name }}</h4>
@@ -44,7 +44,7 @@
                                             <label for="first-name-column">{{ __('admin.name') }}</label>
                                             <div class="controls">
                                                 <input type="text" name="name" value="{{ $admin->name }}"
-                                                    class="form-control" placeholder="{{ __('admin.enter_the_name') }}"
+                                                    class="form-control" placeholder="{{ __('admin.write_the_name') }}"
                                                     required
                                                     data-validation-required-message="{{ __('admin.this_field_is_required') }}">
                                             </div>
@@ -73,6 +73,19 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-column">{{ __('admin.image') }}</label>
+                                            <div class="controls">
+                                                <input type="file" name="image" accept="image/*" class="form-control" id="image"
+                                                    required
+                                                    data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
@@ -121,10 +134,21 @@
             </div>
         </div>
     </div>
-    </div>
 @endsection
 
 @push('js')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
     @include('admin.shared.submitEditForm')
+
+    <script>
+        $(document).ready(function(){
+            $('#image').change(function(e){
+                var reader =new FileReader();
+                reader.onload = function(e){
+                    $('#showImage').attr("src", e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endpush

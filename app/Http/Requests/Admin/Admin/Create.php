@@ -15,7 +15,7 @@ class Create extends FormRequest {
       'phone'    => 'required|min:10|unique:admins,phone',
       'email'    => 'required|email|max:191|unique:admins,email',
       'password' => 'required|min:6|max:255',
-      'image'   => 'nullable|image',
+      'image'    => 'required|image',
       // 'is_blocked'  => 'required|in:0,1',
     ];
   }

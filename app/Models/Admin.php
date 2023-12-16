@@ -41,11 +41,12 @@ class Admin extends Authenticatable {
     }
 
     public function setImageAttribute($value) {
-        if ($value != null && is_file($value)) {
-            isset($this->attributes['image']) ? $this->deleteFile($this->attributes['image'], 'admins') : '';
+        if (null != $value && is_file($value) ) {
+            isset($this->attributes['image']) ? $this->deleteFile($this->attributes['image'] , 'admins') : '';
             $this->attributes['image'] = $this->uploadAllTyps($value, 'admins');
         }
     }
+
 
     public function setPasswordAttribute($value) {
         if ($value) {

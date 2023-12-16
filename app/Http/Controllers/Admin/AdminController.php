@@ -23,7 +23,7 @@ class AdminController extends Controller
 
     public function store(Create $request){
         Admin::create($request->validated());
-        return $this->successOtherData(['url' => route('admin.admins.index')]);
+        return response()->json(['url' => route('admin.admins')]);
     }
 
     public function edit($id){
