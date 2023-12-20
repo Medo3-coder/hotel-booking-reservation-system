@@ -51,6 +51,17 @@
                                 <i class='bx bx-envelope'></i>
                                 <a href="mailto:hello@atoli.com">hello@atoli.com</a>
                             </li>
+
+                            <li>
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                                <a href="{{route('login')}}">Login</a>
+                            </li>
+                            <li>
+                                <i class="fa-regular fa-id-card"></i>
+                                <a href="{{route('register')}}">Register</a>
+                            </li>
+
+
                         </ul>
                     </div>
                 </div>

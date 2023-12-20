@@ -24,6 +24,8 @@
  <script src="{{ asset('admin/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
  <script src="{{ asset('admin/assets/plugins/chartjs/js/chart.js') }}"></script>
  <script src="{{ asset('admin/assets/js/index.js') }}"></script>
+ <script src="https://kit.fontawesome.com/c1462b3672.js" crossorigin="anonymous"></script>
+
 
  @stack('js')
  <!--app JS-->

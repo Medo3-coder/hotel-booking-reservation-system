@@ -6,11 +6,12 @@
                     <div class="footer-widget">
                         <div class="footer-logo">
                             <a href="index.html">
-                                <img src="{{asset('site/img/logos/footer-logo1.png')}}" alt="Images">
+                                <img src="{{ asset('site/img/logos/footer-logo1.png') }}" alt="Images">
                             </a>
                         </div>
                         <p>
-                            Aenean finibus convallis nisl sit amet hendrerit. Etiam blandit velit non lorem mattis, non ultrices eros bibendum .
+                            Aenean finibus convallis nisl sit amet hendrerit. Etiam blandit velit non lorem mattis, non
+                            ultrices eros bibendum .
                         </p>
                         <ul class="footer-list-contact">
                             <li>
@@ -129,7 +130,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email*" name="EMAIL" required autocomplete="off">
+                                            <input type="email" class="form-control" placeholder="Your Email*"
+                                                name="EMAIL" required autocomplete="off">
                                         </div>
                                     </div>
 
@@ -152,7 +154,10 @@
                 <div class="col-lg-8 col-md-8">
                     <div class="copy-right-text text-align1">
                         <p>
-                            Copyright @<script>document.write(new Date().getFullYear())</script> Atoli. All Rights Reserved by
+                            Copyright @
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> Atoli. All Rights Reserved by
                             <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
                         </p>
                     </div>
@@ -186,27 +191,30 @@
 
 
 
-        <!-- Jquery Min JS -->
-        <script src="{{asset('site/js/jquery.min.js')}}"></script>
-        <!-- Bootstrap Bundle Min JS -->
-        <script src="{{asset('site/js/bootstrap.bundle.min.js')}}"></script>
-        <!-- Magnific Popup Min JS -->
-        <script src="{{asset('site/js/jquery.magnific-popup.min.js')}}"></script>
-        <!-- Owl Carousel Min JS -->
-        <script src="{{asset('site/js/owl.carousel.min.js')}}"></script>
-        <!-- Nice Select Min JS -->
-        <script src="{{asset('site/js/jquery.nice-select.min.js')}}"></script>
-        <!-- Wow Min JS -->
-        <script src="{{asset('site/js/wow.min.js')}}"></script>
-        <!-- Jquery Ui JS -->
-        <script src="{{asset('site/js/jquery-ui.js')}}"></script>
-        <!-- Meanmenu JS -->
-        <script src="{{asset('site/js/meanmenu.js')}}"></script>
-        <!-- Ajaxchimp Min JS -->
-        <script src="{{asset('site/js/jquery.ajaxchimp.min.js')}}"></script>
-        <!-- Form Validator Min JS -->
-        <script src="{{asset('site/js/form-validator.min.js')}}"></script>
-        <!-- Contact Form JS -->
-        <script src="{{asset('site/js/contact-form-script.js')}}"></script>
-        <!-- Custom JS -->
-        <script src="{{asset('site/js/custom.js')}}"></script>
+<!-- Jquery Min JS -->
+<script src="{{ asset('site/js/jquery.min.js') }}"></script>
+<!-- Bootstrap Bundle Min JS -->
+<script src="{{ asset('site/js/bootstrap.bundle.min.js') }}"></script>
+<!-- Magnific Popup Min JS -->
+<script src="{{ asset('site/js/jquery.magnific-popup.min.js') }}"></script>
+<!-- Owl Carousel Min JS -->
+<script src="{{ asset('site/js/owl.carousel.min.js') }}"></script>
+<!-- Nice Select Min JS -->
+<script src="{{ asset('site/js/jquery.nice-select.min.js') }}"></script>
+<!-- Wow Min JS -->
+<script src="{{ asset('site/js/wow.min.js') }}"></script>
+<!-- Jquery Ui JS -->
+<script src="{{ asset('site/js/jquery-ui.js') }}"></script>
+<!-- Meanmenu JS -->
+<script src="{{ asset('site/js/meanmenu.js') }}"></script>
+<!-- Ajaxchimp Min JS -->
+<script src="{{ asset('site/js/jquery.ajaxchimp.min.js') }}"></script>
+<!-- Form Validator Min JS -->
+<script src="{{ asset('site/js/form-validator.min.js') }}"></script>
+<!-- Contact Form JS -->
+<script src="{{ asset('site/js/contact-form-script.js') }}"></script>
+<!-- Custom JS -->
+<script src="{{ asset('site/js/custom.js') }}"></script>
+<script src="https://kit.fontawesome.com/c1462b3672.js" crossorigin="anonymous"></script>
+
+@stack('js')

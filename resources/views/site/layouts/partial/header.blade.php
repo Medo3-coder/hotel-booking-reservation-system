@@ -33,4 +33,5 @@
     <link rel="icon" type="image/png" href="{{asset('site/img/favicon.png')}}">
 
     <title>@yield('title')</title>
+    @stack('css')
 </head>
