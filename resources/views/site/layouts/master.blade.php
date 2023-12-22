@@ -54,11 +54,11 @@
 
                             <li>
                                 <i class="fa-solid fa-right-to-bracket"></i>
-                                <a href="{{route('login')}}">Login</a>
+                                <a href="{{route('showLogin')}}">Login</a>
                             </li>
                             <li>
                                 <i class="fa-regular fa-id-card"></i>
-                                <a href="{{route('register')}}">Register</a>
+                                <a href="{{route('showRegister')}}">Register</a>
                             </li>
 
 

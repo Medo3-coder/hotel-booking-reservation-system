@@ -21,6 +21,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/icons.css') }}" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+
     <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
 </head>
 
@@ -136,6 +138,8 @@
     <script src="{{ asset('admin/assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+
 
     <!--Password show & hide js -->
     <script>
@@ -156,8 +160,6 @@
     </script>
 
     <script>
-
-
         $(document).ready(function() {
             $(document).on('submit', '.form-horizontal', function(e) {
                 e.preventDefault();
@@ -177,16 +179,27 @@
                         $(".text-danger").remove()
                         $('.form-horizontal input').removeClass('border-danger')
                         if (response.status == 'login') {
-                            // toastr.success(response.message)
+                            Swal.fire({
+                                position: 'top-start',
+                                type: 'success',
+                                title: response.message,
+                                showConfirmButton: false,
+                                timer: 1500,
+                                confirmButtonClass: 'btn btn-primary',
+                                buttonsStyling: false,
+                            });
                             setTimeout(function() {
                                 window.location.replace(response.url)
                             }, 1000);
+
                         } else {
                             $(".submit_button").html(
                                 `<i class="ft-unlock"></i> {{ __('admin.login') }}`).attr(
                                 'disable', false)
-                                $('.form-horizontal input[name=password]').addClass('border-danger');
-                                $('#show_hide_password').after(`<span class="mt-5 text-danger">${response.message}</span>`);
+                            $('.form-horizontal input[name=password]').addClass(
+                            'border-danger');
+                            $('#show_hide_password').after(
+                                `<span class="mt-5 text-danger">${response.message}</span>`);
                         }
                     },
                     error: function(xhr) {
@@ -210,4 +223,5 @@
     </script>
     <script src="{{ asset('admin/assets/js/app.js') }}"></script>
 </body>
+
 </html>

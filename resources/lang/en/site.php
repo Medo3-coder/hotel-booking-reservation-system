@@ -22,6 +22,7 @@ return [
     'choose_key'              => 'country key',
     'blocked'                 => 'You are Blocked By Admin',
     'more'                    => 'More',
+    'user_created'            => 'User created successfully',
     'Minimum date'            => 'Minimum date',
     'Maximum date'            => 'Maximum date ',
     'email_ex'                => 'email not exists',
