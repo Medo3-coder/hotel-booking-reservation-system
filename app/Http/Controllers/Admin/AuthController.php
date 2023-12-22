@@ -25,7 +25,7 @@ class AuthController extends Controller {
         if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'is_blocked' => 0], $remember_me)) {
             RateLimiter::clear($this->throttleKey());
 
-            return response()->json(['status' => 'login', 'url' => route('admin.dashboard'), 'message' => 'admin.login successfully logged']);
+            return response()->json(['status' => 'login', 'url' => route('admin.dashboard'), 'message' => __('admin.login_successfully_logged') ]);
         } else {
             if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $remember_me)) {
                 auth('admin')->logout();
