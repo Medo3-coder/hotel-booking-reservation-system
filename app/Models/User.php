@@ -48,4 +48,10 @@ class User extends Authenticatable {
         'password'          => 'hashed',
         'active'            => 'boolean',
     ];
+
+    public function setPasswordAttribute($value) {
+        if ($value) {
+            $this->attributes['password'] = bcrypt($value);
+        }
+    }
 }

@@ -1,5 +1,9 @@
 @extends('site.layouts.master')
 
+@push('css')
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+@endpush
+
 @section('title', 'Login')
 @section('content')
 
@@ -31,11 +35,12 @@
                                     <span class="sp-color">Sign In</span>
                                     <h2>Sign In to Your Account!</h2>
                                 </div>
-                                <form id="contactForm">
+                                <form action="{{ route('siteLogin') }}" method="POST" class="store">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-lg-12 ">
                                             <div class="form-group">
-                                                <input type="text" name="name" id="name" class="form-control" required data-error="Please enter your Username or Email" placeholder="Username or Email">
+                                                <input type="text" name="email" id="email" class="form-control" required data-error="Please enter your Username or Email" placeholder="Username or Email">
                                             </div>
                                         </div>
 
@@ -59,9 +64,8 @@
                                         </div>
 
                                         <div class="col-lg-12 col-md-12 text-center">
-                                            <button type="submit" class="default-btn btn-bg-three border-radius-5">
-                                                Sign In Now
-                                            </button>
+                                            <button type="submit"
+                                            class="default-btn btn-bg-three border-radius-5">{{ __('admin.add') }}</button>
                                         </div>
 
                                         <div class="col-12">
@@ -80,3 +84,10 @@
         </div>
         <!-- Sign In Area End -->
 @endsection
+
+
+@push('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+
+    @include('site.shared.submitAddForm')
+@endpush
